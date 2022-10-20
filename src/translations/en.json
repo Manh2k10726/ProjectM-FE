@@ -1,0 +1,73 @@
+{
+    "home-header":{
+        "speciality":"Medical speciality",
+        "search-doctor":"Find a doctor by specialty",
+        "health-facility":"Health facility",
+        "select-room":"Choose a hospital-clinic",
+        "doctor":"Doctor",
+        "select-doctor":"Choose a good doctor",
+        "medical-package":"Medical package",
+        "General-health-check":"General health check",
+        "support":"Support",
+        "welcome":"Welcome, "
+
+    },
+    "banner":{
+        "title1":"MEDICAL PLATFORM",
+        "title2":"COMPREHENSIVE HEALTH CARE",
+        "child":"Specialist examination",
+        "child2":"Remote examination",
+        "child3":"General examination",
+        "child4":"Medical test",
+        "child5":"Mental health",
+        "child6":"Dental examination"
+    },
+    "login": {
+        "login": "Login",
+        "username": "Username",
+        "password": "Password",
+        "userpass-wrong": "Invalid username or password!"
+    },
+    "menu": {
+        "system": {
+            
+            "admin": {
+                "manage-user": "User",
+                "manage-doctor": "Manage doctor",
+                "manage-admin": "Manage admin",
+                "crud": "crud",
+                "crud-redux" :"crud-redux",
+                "clinic":"Clinic",
+                "manage-clinic":"Manage clinic",
+                "specialty":"Specialty",
+                "manage-specialty":"Manage speciality",
+                "handbook":"Handbook",
+                "manage-handbook":"Manage handbook"
+            },
+            "doctor": {
+                "manage-schedule": "Manage doctor's schedule"
+               
+            }
+        }
+    },
+    "manage-user": {
+        "add":"Add new user",
+        "email":"Email",
+        "password":"Password",
+        "first-name":"First name",
+        "last-name":"Last name",
+        "phone-number":"Phone number",
+        "address":"Address",
+        "gender":"Gender",
+        "position":"Position",
+        "role-id":"Role",
+        "image":"Avatar",
+        "save":"Save user",
+        "edit":"Edit user"
+    },
+    "home-page":{
+        "out-standing-doctor":"Outstanding Doctor",
+        "more-info":"See more"
+    }
+    
+}

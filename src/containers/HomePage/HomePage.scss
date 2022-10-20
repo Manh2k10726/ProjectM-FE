@@ -1,0 +1,163 @@
+//reset slick slider css
+.slick-prev{
+    z-index: 10;
+    left: -10 !important;
+    height: 48px !important;
+    width: 44px !important; 
+    // &:hover{
+    //     background: #835050 !important;
+    // }
+}
+.slick-next{
+    right: -10 !important;
+    height: 48px !important;
+    width: 44px !important;
+    // &:hover{
+    //     background: #835050 !important;
+    // }
+}
+// .slick-prev:before{ 
+//     // content: "\e257" !important;
+// }
+//  .slick-next:before{    
+//     // content: "\e258" !important;
+// }
+.slick-arrow:before {
+    font-family: 'Glyphicons Halflings' !important;
+    font-style: normal;
+    font-weight: 400;
+    background: #fff;
+    border: 2px solid #d7d7d7;
+    padding: 10px;
+    text-align: center;
+    color: #959595 !important;
+    
+}
+.section-doctor{
+    .outer-bg{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+       
+    }
+}
+.section-share{
+    &.section-specialty{
+        background-color: #efefef;
+    }
+    &.section-doctor{
+        background-color: #efefef;
+    }
+    &.section-about{
+        height: 500px !important;
+        border-top: 1px solid #f5f5f5;
+        border-bottom:1px solid #f5f5f5 ;
+    }
+    .slick-disabled{
+        display: none !important;
+    }
+    .section-slider{
+           
+        .section-custom{
+            .bg-img{
+                width: 278px;
+                height: 150px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #eee;
+                &.img-specialty{
+                    background-image: url('../../assets/specialty/120331-co-xuong-khop.jpg');
+                }
+
+                &.img-medical{
+                    background-image: url('../../assets/specialty/120933-tieu-hoa.jpg');
+                }
+                &.img-doctor{
+                    // background-image: url('../../assets/doctor/103848anh-dai-dien-bs.jpg');
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                }
+                &.img-handbook{
+                    background-image: url('../../assets/specialty/121042-than-kinh.jpg');
+                    align-items: center;
+                    
+                }
+            }
+        }
+    }
+}
+.section-custom{
+    padding: 5px;
+    cursor: pointer;
+    .border-custom{
+        padding: 10px;
+        border:  1px solid red;
+    }
+}
+.section-share{
+    height: 330px;
+    .section-container{
+        margin: 0 150px;
+        display: flex;
+        flex-direction: column;
+        .section-header{
+            margin-bottom: 30px;
+            padding-top: 30px;
+            height: 60px;
+            .title-section{
+                font-size: 30px;
+                font-weight: 600;
+            }
+            .btn-section{
+                float: right;
+                padding: 10px 15px;
+                display: block;
+                outline: none;
+                border: none;
+                border-radius: 5px;
+                background-color:#f5e2e2;
+                color: black;
+                text-transform: uppercase;
+                &:hover{
+                    background-color:aqua;
+                    color: #fff;
+                }
+            }
+        }
+        
+    }
+  
+}
+.home-footer{
+    text-align: center;
+    padding-top: 8px;
+    a{
+        text-decoration: none;
+    }
+   
+}
+.section-about{
+    padding: 0 100px;
+    .section-about-header{
+        padding: 20px 10px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .section-about-content{
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        .content-left{
+            width: 60%;
+        }
+        .content-right{
+            width:40%;
+            p {
+                text-align: justify;
+                font-style: italic;
+            }
+        }
+    }
+}
