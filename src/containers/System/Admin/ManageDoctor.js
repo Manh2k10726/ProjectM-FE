@@ -132,7 +132,6 @@ class ManageDoctor extends Component {
                                 value={this.state.selectedDoctor}
                                 onChange={this.handleChangeSelect}
                                 options={this.state.listDoctors}
-                                
                             />
                         </div>
                         <div className='content-right'>

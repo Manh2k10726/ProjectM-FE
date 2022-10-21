@@ -68,6 +68,13 @@
     "home-page":{
         "out-standing-doctor":"Outstanding Doctor",
         "more-info":"See more"
+    },
+    "manage-schedule":{
+        "title":"Manage medical examination plan",
+        "choose-doctor": "Choose doctor",
+        "Medical-examination-schedule":"Medical examination schedule",
+        "choose-time":"Choose your examination time",
+        "save":"Save"
     }
-    
+
 }
