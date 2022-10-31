@@ -75,6 +75,9 @@
         "Medical-examination-schedule":"Lịch khám bệnh",
         "choose-time":"Chọn thời gian kiểm tra của bạn",
         "save":"Lưu thông tin"
+    },
+    "doctor-schedule":{
+        "success":"Bác sĩ hiện không có lịch khám bệnh trong ngày.Vui lòng chọn ngày khám bệnh khác."
     }
 
 }

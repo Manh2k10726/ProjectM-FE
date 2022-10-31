@@ -75,6 +75,9 @@
         "Medical-examination-schedule":"Medical examination schedule",
         "choose-time":"Choose your examination time",
         "save":"Save"
+    },
+    "doctor-schedule":{
+        "success":"The doctor currently does not have a schedule for the day. Please choose a different date."
     }
 
 }

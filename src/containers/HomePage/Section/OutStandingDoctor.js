@@ -25,7 +25,7 @@ class OutStandingDoctor extends Component {
         this.props.loadTopDoctors();
     }
     handleViewDetailDoctor=(doctor)=>{
-        console.log('view infor: ',doctor);
+        // console.log('view infor: ',doctor);
         this.props.history.push(`/detail-doctor/${doctor.id}`)
     }
     render() {

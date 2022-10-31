@@ -8,7 +8,7 @@
         font-weight: 600;
     }
     .pick-hour-container{
-        padding: 20px 0;
+        padding: 20px 0;    
         display: flex;
         gap: 15px;
         flex-wrap: wrap;
@@ -16,12 +16,15 @@
            padding: 5px 15px;
            background-color:  slateblue;
            &:hover{
-            background-color: darken( slateblue, 10);
-            a{
-                font-weight: 500;
-                color: rgb(247, 171, 70);
-            }
+            background-color: darken( slateblue, 5);
+            font-weight: 500;
+            color: rgb(254, 129, 11);
            }
+                &.active {
+                    background-color: darken( slateblue, 5);
+                    font-weight: 500;
+                    color: rgb(254, 129, 11);
+                }
         }
         
     }

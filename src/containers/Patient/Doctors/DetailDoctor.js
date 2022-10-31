@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from "react-redux";
 import HomeHeader from '../../HomePage/HomeHeader';
+import HomeFooter from '../../HomePage/HomeFooter';
 import './DetailDoctor.scss';
 import {getDetailInforDoctor} from '../../../services/userService'
 import { LANGUAGES } from '../../../utils';
+import DoctorSchedule from './DoctorSchedule';
 
 class DetailDoctor extends Component {
     constructor(props){
@@ -58,7 +60,11 @@ class DetailDoctor extends Component {
                         </div>
                     </div>
                     <div className="schedule-doctor">
-
+                        <div className='content-left'>
+                                <DoctorSchedule
+                                doctorIdFromDetailDoctor={detailDoctor && detailDoctor.id ? detailDoctor.id :-1}/>
+                        </div>
+                        <div className='content-right'></div>
                     </div>
                     <div className='detail-infor-doctor'>
                                 {detailDoctor && detailDoctor.markdown && detailDoctor.markdown.contentHTML
@@ -70,7 +76,9 @@ class DetailDoctor extends Component {
                     <div className='comment-doctor'>
 
                     </div>
+                    <HomeFooter/>
                 </div>
+                
 
             </Fragment>
         );
