@@ -77,7 +77,19 @@
         "save":"Lưu thông tin"
     },
     "doctor-schedule":{
-        "success":"Bác sĩ hiện không có lịch khám bệnh trong ngày.Vui lòng chọn ngày khám bệnh khác."
+        "success":"Bác sĩ hiện không có lịch khám bệnh trong ngày.Vui lòng chọn ngày khám bệnh khác.",
+        "Examination-Schedule":"Lịch Khám",
+        "title":"Cập nhật thông tin bác sĩ",
+        "select-doctor":"Chọn bác sĩ",
+        "info-doctor":"Thông tin giới thiệu",
+        "edit-doctor":"Sửa thông tin",
+        "save-doctor":"Tạo thông tin",
+        "price" :"Giá dịch vụ khám",
+        "payment":"Phương thức thanh toán",
+        "province":"Tỉnh thành",
+        "ClinicName":"Tên phòng khám",
+        "addressClinic":"Địa chỉ phòng khám",
+        "note":"Ghi chú"
     }
 
 }

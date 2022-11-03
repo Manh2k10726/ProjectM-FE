@@ -77,7 +77,19 @@
         "save":"Save"
     },
     "doctor-schedule":{
-        "success":"The doctor currently does not have a schedule for the day. Please choose a different date."
+        "success":"The doctor currently does not have a schedule for the day. Please choose a different date.",
+        "Examination-Schedule":"Examination Schedule",
+        "title":"Update doctor information",
+        "select-doctor":"Select doctor",
+        "info-doctor":"Introduction information",
+        "edit-doctor":"Edit information",
+        "save-doctor":"Create information",
+        "price" :"Price of examination service",
+        "payment":"Payment methods",
+        "province":"Province area",
+        "ClinicName":"Clinic name",
+        "addressClinic":"Clinic address",
+        "note":"Note"
     }
 
 }

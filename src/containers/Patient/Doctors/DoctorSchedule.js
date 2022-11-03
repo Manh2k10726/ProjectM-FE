@@ -14,6 +14,7 @@ class DoctorSchedule extends Component {
         super(props);
         this.state = {
           allDays : [],
+        //   allAvailableTimes:[],
           allAvailableTime:[]
         }
     }
@@ -45,20 +46,34 @@ class DoctorSchedule extends Component {
        console.log('vie:',moment(new Date()).format('dddd - DD/MM'));
        console.log('en :',moment(new Date()).locale('en').format('ddd - DD/MM'));
        this.setArrDays(language);
+    //    let {allAvailableTimes}=this.state
+    //    if(this.state.res && this.state.res.errCode === 0){
+    //     let dataTime = this.state.res.data;
+    //     this.setState({
+    //         allAvailableTime: dataTime ? dataTime :[]
+    //     })
+    // }
        
     }
-    componentDidUpdate(prevProps,prevState,snapshot){
+    async componentDidUpdate(prevProps,prevState,snapshot){
+        //thong tin quas khu khac thong tin hien tai
         if(this.props.language !== prevProps.language){
             this.setArrDays(this.props.language);
         }
-    }
+        // if(this.state.allAvailableTimes !== prevState.allAvailableTimes ){
+        //     this.setState({
+        //         allAvailableTime: allAvailableTimes
+        //     })
+        // }
+      
+}
     handleOnChangeSelect=async(event)=>{
         if(this.props.doctorIdFromDetailDoctor && this.props.doctorIdFromDetailDoctor != -1 ){
             let doctorId= this.props.doctorIdFromDetailDoctor;
             let date=event.target.value;
             let res = await ScheduleDoctorByDate(doctorId,date);
             if(res && res.errCode === 0){
-                let data = res.data;
+                var dataTime = res.data;
                 this.setState({
                     allAvailableTime: res.data ? res.data :[]
                 })
@@ -67,6 +82,7 @@ class DoctorSchedule extends Component {
         }
     }    
     render() {
+        console.log("Aaa")
         let {allDays,allAvailableTime}=this.state;
         let {language}=this.props;
         return (
@@ -83,7 +99,7 @@ class DoctorSchedule extends Component {
                     </div>
                     <div className='all-available-time'>
                         <div className='text-calendar'>
-                            <i className='fas fa-calendar-alt'/><span> Lịch Khám</span>
+                            <i className='fas fa-calendar-alt'/><span><FormattedMessage id="doctor-schedule.Examination-Schedule"/> : </span>
                         </div>
                         <div className='time-content'>
                         {allAvailableTime && allAvailableTime.length >0 ? allAvailableTime.map((item ,index)=>{
