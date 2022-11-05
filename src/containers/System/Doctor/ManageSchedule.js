@@ -125,11 +125,14 @@ class ManageSchedule extends Component {
             doctorId:selectedDoctors.value,
             date:formattedDate
         })
-        console.log('check res bulk :',res)
-        console.log('check result :',result)
+        if (res && res.errCode ===0) {
+            toast.success('Save Infor Schedule Doctor success !!!')
+        } else {
+            toast.error('Save Bulk Schedule Doctor Error !!!')
+        }
     }
     render() {
-        
+        let yesterday = new Date(new Date().setDate(new Date().getDate()-1));
         let {rangeTime} = this.state;
         let {language}=this.props;
         console.log('check state time :',rangeTime)
@@ -153,7 +156,7 @@ class ManageSchedule extends Component {
                                 <label><FormattedMessage   id="manage-schedule.Medical-examination-schedule"/></label>
                                 <DatePicker onChange={this.handleOnChangeDatePicker}
                                     value={this.state.currentDate}
-                                    minDate={new Date()}
+                                    minDate={ yesterday}
                                     className='form-control'
                                 />
                             </div>
@@ -170,6 +173,7 @@ class ManageSchedule extends Component {
                                     })
                                     }
                                 </div>
+                                
                             </div>
                             <div className='col-12 btn-save'>
                                 <button className='btn btn-primary btn-save' onClick={()=>this.handleSaveSchedule()}

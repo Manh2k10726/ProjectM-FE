@@ -89,7 +89,11 @@
         "province":"Province area",
         "ClinicName":"Clinic name",
         "addressClinic":"Clinic address",
-        "note":"Note"
+        "note":"Note",
+        "choose":"Choose",
+        "free":"and book (free)",
+        "hide":"Hide price list",
+        "show":"See details"
     }
 
 }

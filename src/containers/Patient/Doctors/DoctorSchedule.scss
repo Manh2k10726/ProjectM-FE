@@ -1,5 +1,6 @@
 .doctor-schedule-container{
     border-right: 2px solid #ddd;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     height: 100%;
     .all-schedule{
        select{
@@ -33,21 +34,33 @@
             
         }
         .time-content{
-            display: flex;
+            
+            .time-content-btn{
+                display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            button{
-                padding: 5px 10px;
-                border: none;
-                min-width: 120px;
-                border-radius: 5px;
-                outline: none;
-                background-color: aquamarine;
-                font-weight: 500;
-                &:hover{
-                    background-color: aqua;
-                    color: white;
+                button{
+                    padding: 5px 10px;
+                    border: none;
+                    min-width: 120px;
+                    border-radius: 5px;
+                    outline: none;
+                    background-color: aquamarine;
+                    font-weight: 500;
+                    &:hover{
+                        background-color: aqua;
+                        color: white;
+                    }
                 }
+                .btn-vi{
+                    min-width: 120px;
+                }
+                .btn-en{
+                    min-width: 150px;
+                }
+            }
+            .free{
+                margin-top: 20px;
             }
         }
     }

@@ -80,21 +80,61 @@ class ManageDoctor extends Component {
     }
     handleChangeSelect =async (selectedDoctor,) => {
         this.setState({ selectedDoctor });
+        let {listPayment,listProvince,listPrice} = this.state;
         let res = await getDetailInforDoctor(selectedDoctor.value);
         if(res && res.errCode === 0 && res.data && res.data.markdown){
             let Markdown = res.data.markdown;
+            let addressClinic='',note='',nameClinic='',
+            paymentId='',priceId='',provinceId='',
+            selectedPayment ='', selectedPrice = '',selectedProvince = '';
+           
+            if(res.data.Doctor_info){
+                addressClinic=res.data.Doctor_info.addressClinic;
+                nameClinic=res.data.Doctor_info.nameClinic;
+                note=res.data.Doctor_info.note;
+                paymentId=res.data.Doctor_info.paymentId;
+                priceId=res.data.Doctor_info.priceId;
+                provinceId=res.data.Doctor_info.provinceId;
+
+                selectedPayment = listPayment.find(item =>{
+                    if (item.value === paymentId) {
+                        return item && item.value=== paymentId
+                    }
+                })
+                console.log('check arr data',selectedPayment,listPayment,paymentId)
+
+                selectedPrice = listPrice.find(item =>{
+                    if (item.value === priceId) {
+                        return item && item.value=== priceId
+                    }
+                })
+                selectedProvince = listProvince.find(item =>{
+                    if (item.value === provinceId) {
+                        return item && item.value=== provinceId
+                    }
+                })
+            }
             this.setState({
                 contentHTML: Markdown.contentHTML,
                 contentMarkdown: Markdown.contentMarkdown,
                 description: Markdown.description,
-                hasOldData:true
+                hasOldData:true,
+                addressClinic:addressClinic,
+                nameClinic:nameClinic,
+                note:note,
+                selectedPrice:selectedPrice,
+                selectedPayment:selectedPayment,
+                selectedProvince:selectedProvince
             })
         }else{
             this.setState({
                 contentHTML: '',
                 contentMarkdown: '',
                 description: '',
-                hasOldData:false
+                hasOldData:false,
+                addressClinic:'',
+                nameClinic:'',
+                note:''
             })
         }
         // console.log('selectedDoctor :',name)

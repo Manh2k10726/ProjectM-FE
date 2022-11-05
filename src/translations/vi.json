@@ -89,7 +89,11 @@
         "province":"Tỉnh thành",
         "ClinicName":"Tên phòng khám",
         "addressClinic":"Địa chỉ phòng khám",
-        "note":"Ghi chú"
+        "note":"Ghi chú",
+        "choose":"Chọn",
+        "free":"và đặt (miễn phí)",
+        "hide":"Ẩn bảng giá",
+        "show":"Xem chi tiết"
     }
 
 }
