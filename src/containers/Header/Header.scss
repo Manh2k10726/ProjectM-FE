@@ -2,6 +2,8 @@
 
 .header-container {
     z-index: 99;
+    top:0;
+    position:sticky !important;
     display: flex;
     justify-content: space-between;
     background-image: linear-gradient(-225deg, #755ede 0%, #FFE6FA 100%);

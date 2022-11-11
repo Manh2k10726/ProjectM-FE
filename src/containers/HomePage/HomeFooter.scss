@@ -10,23 +10,13 @@
         background: url('../../assets/logo.svg') center center no-repeat;
         height: 70px;
         width: 70%;
+        cursor: pointer;
         background-size: 50%;
         margin-left: -60px;
 }
-  section {
-    width: 100%;
-    display: inline-block;
-    background: rgb(4, 217, 255);
-    height: 50vh;
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    text-decoration: underline;
-    
-  }
   
   .footer-distributed{
-    background: rgb(210, 238, 244);
+    background:  rgba(222, 222, 222, 0.4);
     box-shadow: rgba(0, 0, 0, 0) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px !important;
     box-sizing: border-box;
     width: 100%;
@@ -39,9 +29,11 @@
   .footer-distributed .footer-left,
   .footer-distributed .footer-center,
   .footer-distributed .footer-right{
+    border-top: 1px solid rgb(103, 103, 103) ;
     display: inline-block;
     vertical-align: top;
-    box-shadow: rgba(18, 253, 253, 0.4) 5px 5px, rgba(45, 240, 214, 0.3) 10px 10px, rgba(42, 245, 245, 0.2) 15px 15px, rgba(46, 240, 240, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+   box-shadow: rgba(169, 172, 172, 0.4) 5px 5px, rgba(130, 137, 136, 0.3) 10px 10px, rgba(113, 122, 122, 0.2) 15px 15px, rgba(104, 141, 141, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    
   }
   
   /* Footer left */
@@ -50,11 +42,14 @@
     width: 40%;
     
   }
+  .footer-left{
+    border-left: 1px solid rgb(103, 103, 103);
+  }
   
   /* The company logo */
   
   .footer-distributed h3{
-    color:  #ffffff;
+    color:  #333;
     font: normal 36px 'Open Sans', cursive;
     margin: 0;
   }
@@ -66,7 +61,7 @@
   /* Footer links */
   
   .footer-distributed .footer-links{
-    color:  #ffffff;
+    color:  #333;
     margin: 20px 0 12px;
     padding: 0;
   }
@@ -77,6 +72,10 @@
     font-weight:400;
     text-decoration: none;
     color:  inherit;
+    cursor: pointer;
+    &:hover{
+      color: #009dff;
+    }
   }
   
   .footer-distributed .footer-company-name{
@@ -112,7 +111,7 @@
   
   .footer-distributed .footer-center p{
     display: inline-block;
-    color: #ffffff;
+    color: #333;
     font-weight:400;
     vertical-align: middle;
     margin:0;
@@ -126,7 +125,7 @@
   }
   
   .footer-distributed .footer-center p a{
-    color:  lightseagreen;
+    color:  rgba(0, 0, 0, 0.73);
     text-decoration: none;;
   }
   
@@ -135,7 +134,7 @@
     font-weight:300;
     font-size: 20px;
     left: 0;
-    color: #fff;
+    color: #333;
     display: inline-block;
     padding-right: 5px;
   }
@@ -153,7 +152,7 @@
   
   .footer-distributed .footer-company-about{
     line-height: 20px;
-    color:  #92999f;
+    color:  #000000;
     font-size: 13px;
     font-weight: normal;
     margin: 0;
@@ -161,7 +160,7 @@
   
   .footer-distributed .footer-company-about span{
     display: block;
-    color:  #ffffff;
+    color:  rgb(255, 221, 1);
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -176,7 +175,6 @@
     width: 35px;
     height: 35px;
     cursor: pointer;
-    background-color:  #009dff;
     border-radius: 2px;
   
     font-size: 20px;
@@ -186,6 +184,9 @@
   
     margin-right: 3px;
     margin-bottom: 5px;
+    &:hover{
+      opacity: 0.8;
+    } 
   }
   
   
@@ -209,4 +210,26 @@
       margin-left: 0;
     }
   
+  }
+  .detail-footer{
+    background-color: #09bfc2;
+    height: 80px;
+  }
+  
+  .instagram{
+    background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  }
+  .fb{
+    background-color: #385499;
+  }
+  .yt{
+   color:#c91d1f !important; 
+   background-color: rgb(236, 236, 236);
+  }
+  .git{
+    background-color: #333030;    
   }

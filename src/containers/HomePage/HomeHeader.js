@@ -21,7 +21,7 @@ class HomeHeader extends Component {
                 <div className='home-header-container'>
                     <div className='home-header-content'>
                         <div className='left-content'>
-                            <i className="fas fa-bars"></i>
+                            <div className='header-nar'><i className="fas fa-bars "></i></div>
                             <div className='header-logo' onClick={()=>this.handleReturnHome()}></div>
                         </div>
                         <div className='center-content'>

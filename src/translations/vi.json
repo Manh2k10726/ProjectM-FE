@@ -94,6 +94,20 @@
         "free":"và đặt (miễn phí)",
         "hide":"Ẩn bảng giá",
         "show":"Xem chi tiết"
+    },
+    "patient":{
+        "Information":"Thông tin đặt lịch khám bệnh",
+        "name":"Họ tên",
+        "phone-number":"Số điện thoại",
+        "email":"Email liên hệ",
+        "address":"Địa chỉ",
+        "reason":"Lý do khám",
+        "birthday":"Ngày sinh ",
+        "gender":"Giới tính",
+        "Confirm":"Xác nhận",
+        "Cancel":"Hủy bỏ",
+        "free":"Miễn phí đặt lịch",
+        "price":"Giá khám"
     }
 
 }

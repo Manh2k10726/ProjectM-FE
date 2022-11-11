@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
-import './HomeFooter.scss'
+import { withRouter } from 'react-router';
+import{LANGUAGES } from "../../utils";
+import { changeLanguageApp } from '../../store/actions/appActions';
+import './HomeFooter.scss';
+
 
 class HomeFooter extends Component {
 
+    handleReturnHome=()=>{
+        this.props.history.push(`/Home`);
+    }
     render() {
         return (
             <Fragment>
@@ -13,23 +20,16 @@ class HomeFooter extends Component {
 
                         <div class="footer-left">
 
-                        <div className='header-logo'></div>
+                        <div onClick={()=> this.handleReturnHome()} className='header-logo'></div>
 
                             <p class="footer-links">
-                                <a href="#" class="link-1">Home</a>
-                                
+                                <a onClick={()=> this.handleReturnHome()} >Home</a>
                                 <a href="#">Blog</a>
-                            
-                                <a href="#">Pricing</a>
-                            
                                 <a href="#">About</a>
-                                
-                                <a href="#">Faq</a>
-                                
                                 <a href="#">Contact</a>
                             </p>
 
-                            <p class="footer-company-name">Company Name © 2022</p>
+                            <p class="footer-company-name">Demo Booking Care © 2022</p>
                             </div>
 
                             <div class="footer-center">
@@ -60,17 +60,17 @@ class HomeFooter extends Component {
 
                             <div class="footer-icons">
                             
-                                <a href="#"><i className="fab fa-facebook"></i></a>
-                                <a href="#"><i className="fab fa-twitter"></i></a>
-                                <a href="#"><i className="fab fa-linkedin"></i></a>
-                                <a href="#"><i className="fab fa-github"></i></a>
+                                <a className='fb' href="#"><i className="fab fa-facebook-f "></i></a>
+                                <a className='yt' href="#"><i className="fab fa-youtube"></i></a>
+                                <a className='instagram' href="#"><i className="fab fa-instagram "></i></a>
+                                <a className='git' href="#"><i className="fab fa-github git"></i></a>
 
                             </div>
 
                             </div>
 
                     </footer>
-                    <p>&copy; 2022 Demo Booking Care. More information, please visit my youtube channel.<a target='_blank' href='https://youtu.be/2rJSCXSWncQ'>&#8594; Click here &#8592;</a></p>
+                    <p className='detail-footer'>&copy; 2022 Demo Booking Care. More information, please visit my youtube channel.<a target='_blank' href='https://www.youtube.com/watch?v=o0aFiNTxFR0&t=2796s'>&#8594; Click here &#8592;</a></p>
                </div>
             </Fragment>
         );
@@ -80,13 +80,16 @@ class HomeFooter extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        language: state.app.language,
+        userInfo:state.user.userInfo
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        changeLanguageAppRedux:(language) => dispatch(changeLanguageApp(language))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeFooter);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeFooter));

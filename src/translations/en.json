@@ -94,6 +94,20 @@
         "free":"and book (free)",
         "hide":"Hide price list",
         "show":"See details"
+    },
+    "patient":{
+        "Information":"Information to book a medical appointment",
+        "name":"Full name",
+        "phone-number":"Phone number",
+        "email":"Contact email",
+        "address":"Address",
+        "reason":"Reason for examination",
+        "birthday":"Date of birth ",
+        "gender":"Gender",
+        "Confirm":"Confirm",
+        "Cancel":"Cancel",
+        "free":"Free booking",
+        "price":"Examination price"
     }
 
 }

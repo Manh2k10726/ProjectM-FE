@@ -40,9 +40,15 @@ const  ScheduleDoctorByDate =(doctorId,date) =>{
 const  getExtraInfoDoctorById =(doctorId) =>{
     return axios.get(`/api/get-extra-info-doctor-by-id?doctorId=${doctorId}`)
 }
+const  getProfileDoctorById =(doctorId) =>{
+    return axios.get(`/api/get-profile-doctor-by-id?doctorId=${doctorId}`)
+}
+const  postPatientBookAppointment =(data) =>{
+    return axios.post(`/api/patient-book-appointment`,data)
+}
 export{handleLoginApi,getAllUsers,
     createNewUserService,delUserService,editUserService,
     getAllCodeService,getTopDoctorHomeService,getAllDoctors,saveDetailDoctor,
     getDetailInforDoctor,saveBulkScheduleDoctor,ScheduleDoctorByDate,
-    getExtraInfoDoctorById
+    getExtraInfoDoctorById,getProfileDoctorById,postPatientBookAppointment
 }

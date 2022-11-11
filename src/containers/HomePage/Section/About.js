@@ -11,10 +11,14 @@ class About extends Component {
                     <div className='section-about-header'> Đánh giá từ chuyên gia</div>
                     <div className='section-about-content'>
                         <div className='content-left'>
-                            <iframe width="100%" height="400px" src="https://www.youtube.com/embed/2rJSCXSWncQ" 
+                            {/* <iframe width="100%" height="400px" src="https://www.youtube.com/embed/2rJSCXSWncQ" 
                                 title="#59 Debugs Redux Từ A đến Z và Thực Hiện CRUD Với Redux - CREATE | Redux-React Cho Người Mới Bắt Đầu" 
                                 frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                 allowFullScreen>
+                            </iframe> */}
+                            <iframe width="100%" height="400px" src="https://www.youtube.com/embed/o0aFiNTxFR0"
+                              title="formick" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+                              encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                             </iframe>
                         </div>
                         <div className='content-right'>
