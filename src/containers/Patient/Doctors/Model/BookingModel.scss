@@ -32,9 +32,9 @@
                 border-radius: 5px;
             }
             .btn-booking{
-                background-color: aqua;
+                background-color: #2dcaca;
                 &:hover{
-                    background-color: darken($color: aqua, $amount: 5);
+                    background-color: darken($color: #2dcaca, $amount: 5);
                 }
             }
             .btn-booking-cancel{
