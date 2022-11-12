@@ -15,12 +15,13 @@ import Login from './Auth/Login';
 // import Login from '../routes/Login';
 import System from '../routes/System';
 
-import { CustomToastCloseButton } from '../components/CustomToast';
-import ConfirmModal from '../components/ConfirmModal';
+// import { CustomToastCloseButton } from '../components/CustomToast';
+// import ConfirmModal from '../components/ConfirmModal';
 import HomePage from './HomePage/HomePage.js';
 import DetailDoctor from './Patient/Doctors/DetailDoctor';
 import CustomScrollbars from '../components/CustomScrollbars';
 import Doctor from '../routes/Doctor';
+import verifyEmail from './Patient/verifyEmail';
 
 class App extends Component {
 
@@ -59,6 +60,7 @@ class App extends Component {
                                     <Route path={'/doctor/'} component={userIsAuthenticated(Doctor)} />
                                     <Route path={path.HOMEPAGE} component={(HomePage)} />
                                     <Route path={path.DETAIL_DOCTOR}component={DetailDoctor} />
+                                    <Route path={path.VERIFY_EMAIL_BOOKING}component={verifyEmail} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

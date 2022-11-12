@@ -113,7 +113,7 @@ buildNameBooking= (dataTime)=>{
         :
        `${dataTime.doctorData.lastName} ${dataTime.doctorData.firstName}
         `;
-        
+        return name;
     }
     return<></>
 }

@@ -1,0 +1,48 @@
+.verify-email-container{
+    .info-verify{
+        font-size: 17px;
+        font-weight: 600;
+        margin-top: 30px;
+        text-align: center;
+        color: red;
+        
+    }
+    .booking-image{
+        height: 700px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('https://img.freepik.com/free-vector/appointment-booking-with-calendar_52683-39831.jpg?w=900&t=st=1668245118~exp=1668245718~hmac=3a980a0be5ecf22297ea7241230e3003db0bf5b5ed47708300563869750fb3b2');
+    }
+    .error{
+        display: flex;  
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        .error-image{
+            
+            height: 700px;
+            width: 700px;
+            background-size: cover;
+            z-index: 0.5;
+            background-image: url('https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=740&t=st=1668244035~exp=1668244635~hmac=241d46acf22afb1f06db800200de050c62e5d6cc5a2627c67d1f35b2b2021e38');
+            
+        }
+        .error-detail{
+            padding-top: 10%;
+            color: #333;
+            h5{
+                padding: 5px;
+            }
+            h7{
+                color: #495be2 !important;
+            }
+            h4{
+                padding: 5px;
+                font-weight: 600;
+                font-style: italic;
+            }
+        }
+        
+    }
+    
+}
