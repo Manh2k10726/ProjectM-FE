@@ -1,0 +1,32 @@
+.specialty-container{
+    height: auto;
+    .ms-title{
+        text-align: center;
+        margin: 10px 0;
+        text-transform: capitalize;
+        font-size: 20px;
+        font-weight: 600;
+        color: #0071ba;
+    }
+    .specialty-all-list{
+        padding: 10px;
+        .btn-add-new-specialty{
+            .button{
+                outline: none;
+                border: none;
+                background-color: #0069d9;
+                color: white;
+                min-width: 75px;
+                padding: 10px 5px;
+                margin: 15px 0;
+                &:hover{
+                    background-color:darken($color: #0069d9, $amount: 5);
+                    color: rgb(255, 255, 255);
+                }
+            }
+          
+        }
+    }
+
+    
+}
