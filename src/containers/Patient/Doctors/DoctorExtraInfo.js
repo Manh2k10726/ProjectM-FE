@@ -18,6 +18,14 @@ class DoctorExtraInfo extends Component {
     }
 
     async componentDidMount(){
+        if (this.props.doctorIdFromDetailDoctor) {
+            let res = await getExtraInfoDoctorById(this.props.doctorIdFromDetailDoctor);
+        if (res && res.errCode === 0) {
+         this.setState({
+             extraInfo:res.data
+         })
+        } 
+        }
        
     }
     async componentDidUpdate(prevProps,prevState,snapshot){
@@ -31,7 +39,7 @@ class DoctorExtraInfo extends Component {
                 extraInfo:res.data
             })
            }
-           console.log('check data extra :',res);
+
         }
     }
     showHideDetailInfo =(status)=>{

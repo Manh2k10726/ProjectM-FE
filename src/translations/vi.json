@@ -67,7 +67,8 @@
     },
     "home-page":{
         "out-standing-doctor":"Bác sĩ nổi bật",
-        "more-info":"Xem thêm"
+        "more-info":"Xem thêm",
+        "specialty":"Chuyên khoa"
     },
     "manage-schedule":{
         "title":"Quản lý kế hoạch khám bệnh",
@@ -93,7 +94,9 @@
         "choose":"Chọn",
         "free":"và đặt (miễn phí)",
         "hide":"Ẩn bảng giá",
-        "show":"Xem chi tiết"
+        "show":"Xem chi tiết",
+        "select-specialty":"Chọn chuyên khoa",
+        "select-clinic":"Chọn phòng khám"
     },
     "patient":{
         "Information":"Thông tin đặt lịch khám bệnh",

@@ -1,0 +1,79 @@
+.specialty-detail-container{
+    background: url('../../../assets/images/bookingcare-cover-4.jpg');
+    .sp-detail-up{
+        // background: url('../../../assets/images/bookingcare-cover-4.jpg');
+        background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.9),rgb(218, 213, 213));
+    .description-specialty-hidden{
+        // border:1px solid red;
+        height: 150px;
+        padding: 0 150px;
+        overflow: hidden;
+    }
+    .description-specialty-show{
+       
+        padding: 0 150px;
+       
+    }
+    span{
+        margin: 0 150px;
+        width: 100px;
+        height: 30px;
+        border-radius: 2px;
+        border-bottom:1px solid #2dcaca;
+        color: #2dcaca;
+        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;
+    }
+}
+    .sp-detail-down{
+        background-color: #ddd;
+        padding: 10px;
+        .sp-detail-down-content{
+            margin: 20px 150px;
+            .search-sp-doctor{
+                select{cursor: pointer;
+                    color: #2dcaca;
+                    border: none;
+                    height: 30px;
+                    border-radius: 5px;
+                    border-bottom:1px solid #2dcaca ;
+                }
+                
+            }
+            .each-doctor{
+                background-color: white  !important;
+                display: flex;
+                width: 100%;
+                min-height: 300px;
+                border-radius: 7px;
+                border: 1px solid aqua;
+                margin: 10px 5px;
+                padding: 10px;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                .doctor-left{
+                    width: 50%;
+                    border-right:1px solid #ddd ;
+                }
+                .doctor-right{
+                    width: 50%;
+                    padding: 5px;
+                    // margin-right: 10px;
+                    .DoctorSchedule{
+                        .doctor-schedule-container{
+                            border: none !important;
+                        }
+                        // border: 1px solid rgb(234, 255, 0);
+                    }
+                    .DoctorExtraInfo{
+                        .doctor-extra-info-container{
+                            padding-left: 0 !important;
+                        }
+                        padding-top: 10px;
+                        margin-top: 10px;
+                        border-top: 1px solid #ddd;
+                    }
+                }
+            }
+    }
+}
+}

@@ -39,21 +39,27 @@ class ManageSpecialty extends Component {
         let file =data[0];
         if (file) {
             let base64 = await CommonUtils.getBase64(file);
-            let objectUrl =URL.createObjectURL(file);
             this.setState({
-                imageBase64:objectUrl,
-                // avatar:base64
+                imageBase64:base64,
             })
             
         }
     }
-    handleSaveSpecialty =async()=>{
+    handleSaveSpecialty = async()=>{
         let res = await createNewSpecialty(this.state);
         if(res && res.errCode === 0){
-            toast.success('Add new specialty succeeds !!!')
+            toast.success('Add new specialty succeeds !!!');
+            this.setState({
+                name:'',
+                imageBase64:'',
+                descriptionHTML:'',
+                descriptionMarkdown:''
+             })
         }else{
-            toast.error('Error, Plz try again ...')
+            toast.error('Error, Plz try again ...');
+            console.log(res)
         }
+        console.log('check state',this.state)
     }
      // Finish!
      handleEditorChange=({ html, text }) =>{
@@ -94,7 +100,7 @@ class ManageSpecialty extends Component {
                         </div>
                         <div className='col-12  btn-add-new-specialty'>
                             <button className=' btn button '
-                                onClick={()=>this.handleSaveSpecialty()}
+                                onClick={() => this.handleSaveSpecialty()}
                             >
                                 Add new
                             </button>

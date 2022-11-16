@@ -27,7 +27,10 @@
             background-image: url('https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=740&t=st=1668244035~exp=1668244635~hmac=241d46acf22afb1f06db800200de050c62e5d6cc5a2627c67d1f35b2b2021e38');
             
         }
+        
+        }
         .error-detail{
+            text-align: center;
             padding-top: 10%;
             color: #333;
             h5{
@@ -41,8 +44,6 @@
                 font-weight: 600;
                 font-style: italic;
             }
-        }
-        
     }
     
 }

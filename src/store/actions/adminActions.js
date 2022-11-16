@@ -1,5 +1,7 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService,createNewUserService, getAllUsers,delUserService,editUserService,getTopDoctorHomeService, getAllDoctors,saveDetailDoctor } from '../../services/userService';
+import { getAllCodeService,createNewUserService,
+     getAllUsers,delUserService,editUserService,getTopDoctorHomeService,
+      getAllDoctors,saveDetailDoctor,getAllSpecialty } from '../../services/userService';
 import { toast } from 'react-toastify';
 
 // export const fetchGenderStart = () => ({
@@ -197,8 +199,8 @@ export const editUserFailed = ()=>({
 export const fetchTopDoctors = ()=>{
     return async (dispatch,getState) =>{
         try {
-            let res = await getTopDoctorHomeService(5) ;
-            console.log('check res doctor: ',res)
+            let res = await getTopDoctorHomeService(10) ;
+            // console.log('check res doctor: ',res)
             if (res && res.errCode === 0) {
                dispatch({
                 type: actionTypes.FETCH_TOP_DOCTOR_SUCCESS,
@@ -214,7 +216,7 @@ export const fetchTopDoctors = ()=>{
                 type: actionTypes.FETCH_TOP_DOCTOR_FAILED,
                })
             
-            console.log(e)
+            
           }
     } 
 }
@@ -302,17 +304,20 @@ export const getRequiredDoctorInfo = () => {
             dispatch({
                 type:actionTypes.FETCH_REQUIRED_DOCTOR_INFO_START
             })
-            let resPrice = await getAllCodeService("PRICE")
-            let resPayment = await getAllCodeService("PAYMENT")
-            let resProvince = await getAllCodeService("PROVINCE")
+            let resPrice = await getAllCodeService("PRICE");
+            let resPayment = await getAllCodeService("PAYMENT");
+            let resProvince = await getAllCodeService("PROVINCE");
+            let resSpecialty = await getAllSpecialty();
             if (resPrice && resPrice.errCode === 0 
                 && resPayment && resPayment.errCode === 0
                 && resProvince && resProvince.errCode === 0
+                && resSpecialty && resSpecialty.errCode === 0
                 ) {
                     let data ={
                         resPrice: resPrice.data,
                         resPayment:resPayment.data,
-                        resProvince:resProvince.data
+                        resProvince:resProvince.data,
+                        resSpecialty:resSpecialty.data
                     }
                 dispatch(fetchRequiredDoctorInfoSuccess(data));
             } else {

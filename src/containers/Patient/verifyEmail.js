@@ -67,7 +67,9 @@ class verifyEmail extends Component {
                                         <div className='info-verify'>Đã có lỗi xảy ra ,vui lòng thử lại sau !!!</div>
                                         <div className='error'>
                                             <div className='error-image'> </div>
-                                            <div className='error-detail'>
+                                            
+                                        </div>
+                                        <div className='error-detail'>
                                                 <h5>Thông tin chi tiết vui lòng liên hệ:</h5>
                                                 <h7>ĐKKD số: 0106790291. Sở KHĐT Hà Nội cấp ngày 16/03/2015</h7>
                                                 <h5>hoặc đến địa chỉ:</h5>
@@ -79,7 +81,6 @@ class verifyEmail extends Component {
                                                 <h7>Số 01, Hồ Bá Kiện, Phường 15, Quận 10</h7>
                                                 <h4> Xin chân thành cảm ơn !</h4>
                                             </div>
-                                        </div>
                                     </div>
                                 }
                             </div>

@@ -31,6 +31,13 @@ class ProfileDoctor extends Component {
         }  
         if(this.props.doctorId !== prevProps.doctorId){
             // this.getInfoDoctor(this.props.doctorId)
+            if (this.props.doctorId !== prevProps.doctorId) {
+              let data = await this.getInfoDoctor(this.props.doctorId);
+              this.setState({
+                dataProfile: data,
+              });
+            //   console.log('check dataProfile:',this.state.dataProfile)
+            }
         }    
 } 
 getInfoDoctor = async (id) =>{

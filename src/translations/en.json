@@ -67,7 +67,8 @@
     },
     "home-page":{
         "out-standing-doctor":"Outstanding Doctor",
-        "more-info":"See more"
+        "more-info":"See more",
+        "specialty":"Popular Specialties"
     },
     "manage-schedule":{
         "title":"Manage medical examination plan",
@@ -93,7 +94,9 @@
         "choose":"Choose",
         "free":"and book (free)",
         "hide":"Hide price list",
-        "show":"See details"
+        "show":"See details",
+        "select-specialty":"Select specialty",
+        "select-clinic":"Select clinic"
     },
     "patient":{
         "Information":"Information to book a medical appointment",

@@ -67,7 +67,7 @@
                 background-size: cover;
                 background-color: #eee;
                 &.img-specialty{
-                    background-image: url('../../assets/specialty/120331-co-xuong-khop.jpg');
+                    // background-image: url('../../assets/specialty/120331-co-xuong-khop.jpg');
                 }
 
                 &.img-medical{
@@ -93,7 +93,7 @@
     cursor: pointer;
     .border-custom{
         padding: 10px;
-        border:  1px solid red;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     }
 }
 .section-share{
