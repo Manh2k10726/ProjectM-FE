@@ -62,15 +62,6 @@ class DetailSpecialty extends Component {
     async  componentDidUpdate(prevProps,prevState,snapshot){
         if (this.props.language !== prevProps.language) {
         }
-        
-        // if(this.props.doctorIdFromDetailDoctor !== prevProps.doctorIdFromDetailDoctor ){
-        //     let allDays = this.getArrDays(this.props.language);
-        //     let res = await ScheduleDoctorByDate(this.props.doctorIdFromDetailDoctor,allDays[0].value);
-        //     this.setState({
-        //         allAvailableTime:res.data ? res.data : []
-        //     })
-           
-        // }
     }
     handelSelect=async (event)=>{
         if(this.props.match && this.props.match.params && this.props.match.params.id){
@@ -156,6 +147,8 @@ class DetailSpecialty extends Component {
                                                 <ProfileDoctor
                                                     doctorId={item}
                                                     isShowDescriptionDoctor={true}
+                                                    isShowLinkDetail={true}
+                                                    isShowPrice={false}
                                                 />
                                             </div>
                                         </div>

@@ -26,6 +26,14 @@ class DoctorSchedule extends Component {
             allDays : allDays,
         })
         }
+        if(this.props.doctorIdFromDetailDoctor ){
+            let allDays = this.getArrDays(this.props.language);
+            let res = await ScheduleDoctorByDate(this.props.doctorIdFromDetailDoctor,allDays[0].value);
+            this.setState({
+                allAvailableTime:res.data ? res.data : []
+            })
+           
+        }
      }
     capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);

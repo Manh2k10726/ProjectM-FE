@@ -8,6 +8,7 @@ import NumberFormat from 'react-number-format'
 import { LANGUAGES } from '../../../utils';
 import _ from 'lodash'
 import moment from 'moment';
+import {Link} from 'react-router-dom'
 
 class ProfileDoctor extends Component {
     constructor(props){
@@ -69,7 +70,8 @@ renderTimeBooking= (dataTime)=>{
     return<></>
 }
 render() {
-    let {language,isShowDescriptionDoctor,dataTime} = this.props;
+    let {language,isShowDescriptionDoctor,dataTime,isShowLinkDetail,
+    isShowPrice,doctorId} = this.props;
     console.log('check state in profile',this.props)
     let {dataProfile} = this.state;
     let nameVi ='',nameEn = ''
@@ -105,6 +107,13 @@ render() {
                                 </div>
                             </div>
                     </div>
+                    {isShowLinkDetail && isShowLinkDetail === true &&
+                     <span className='see-more-doctor'>
+                        <Link to={`/detail-doctor/${doctorId}`}> ee more</Link>
+                        {/* <a href={`/detail-doctor/${doctorId}`}> see more </a>*/}
+                        </span> 
+                     }
+                    {isShowPrice && isShowPrice === true &&
                         <div className='price'> 
                                 <FormattedMessage id="patient.price"/> : 
                                {dataProfile && dataProfile.Doctor_info && language === LANGUAGES.VI ?
@@ -116,6 +125,7 @@ render() {
                                     displayType={'text'} thousandSeparator={true} suffix={'$'} /> :''
                                }
                         </div>
+                    }
                 </div>
                 
             </Fragment>
