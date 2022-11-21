@@ -67,14 +67,12 @@
                 background-size: cover;
                 background-color: #eee;
                 &.img-specialty{
-                    // background-image: url('../../assets/specialty/120331-co-xuong-khop.jpg');
                 }
 
                 &.img-medical{
                     background-image: url('../../assets/specialty/120933-tieu-hoa.jpg');
                 }
                 &.img-doctor{
-                    // background-image: url('../../assets/doctor/103848anh-dai-dien-bs.jpg');
                     width: 120px;
                     height: 120px;
                     border-radius: 50%;
@@ -116,7 +114,7 @@
                 display: block;
                 outline: none;
                 border: none;
-                border-radius: 5px;
+                border-radius: 7px;
                 background-color:#f5e2e2;
                 color: black;
                 text-transform: uppercase;

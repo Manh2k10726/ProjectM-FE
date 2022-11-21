@@ -14,6 +14,9 @@ class HomeHeader extends Component {
     handleReturnHome=()=>{
         this.props.history.push(`/Home`)
     }
+    handleToSpecialty=()=>{
+        this.props.history.push(`/specialty`)
+    }
     render() {
         let language = this.props.language;
         return (
@@ -25,7 +28,7 @@ class HomeHeader extends Component {
                             <div className='header-logo' onClick={()=>this.handleReturnHome()}></div>
                         </div>
                         <div className='center-content'>
-                            <div className='children-center-content'>
+                            <div className='children-center-content' onClick={()=>this.handleToSpecialty()} >
                                 <div><b><FormattedMessage id="home-header.speciality"/></b></div>
                                 <div className='subs-title'><FormattedMessage id="home-header.search-doctor"/></div>
                             </div>

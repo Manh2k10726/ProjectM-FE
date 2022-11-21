@@ -7,7 +7,7 @@ import './DetailSpecialty.scss';
 import DoctorSchedule from '../Doctors/DoctorSchedule'
 import DoctorExtraInfo from '../Doctors/DoctorExtraInfo';
 import ProfileDoctor from '../Doctors/ProfileDoctor';
-import {getDetailSpecialty,getAllCodeService,getProfileDoctorById,ScheduleDoctorByDate} from '../../../services/userService'
+import {getDetailSpecialty,getAllCodeService,} from '../../../services/userService'
 import _ from 'lodash';
 import { LANGUAGES } from '../../../utils';
 class DetailSpecialty extends Component {
@@ -106,7 +106,6 @@ class DetailSpecialty extends Component {
     render() {
         let {arrDoctorId,dataDetailSpecialty,listProvince,checkHidden}=this.state;
         let {language}=this.props;
-        console.log("check state arrDoctorId: ",this.state.arrDoctorId)
         return (
             <Fragment>
                 <HomeHeader isShowBanner={false}/>
@@ -139,7 +138,7 @@ class DetailSpecialty extends Component {
                     </div>
                     {arrDoctorId && arrDoctorId.length> 0 &&
                             arrDoctorId.map((item,index)=>{
-                               console.log('check  mang Id ',arrDoctorId) 
+                               
                                 return(
                                     <div className='each-doctor'  key={index} >
                                         <div className='doctor-left'>

@@ -109,11 +109,11 @@ render() {
                     </div>
                     {isShowLinkDetail && isShowLinkDetail === true &&
                      <span className='see-more-doctor'>
-                        <Link to={`/detail-doctor/${doctorId}`}> ee more</Link>
+                        <Link to={`/detail-doctor/${doctorId}`}> See more</Link>
                         {/* <a href={`/detail-doctor/${doctorId}`}> see more </a>*/}
                         </span> 
                      }
-                    {isShowPrice && isShowPrice === true &&
+                    {isShowPrice && isShowPrice === true && 
                         <div className='price'> 
                                 <FormattedMessage id="patient.price"/> : 
                                {dataProfile && dataProfile.Doctor_info && language === LANGUAGES.VI ?
