@@ -1,53 +1,54 @@
-import React, { Component } from 'react';
-import { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Slider from "react-slick";
+import {getAllClinic} from '../../../services/userService'
+class Clinic extends Component {
 
-class MedicalFacility extends Component {
-
+    constructor(props){
+        super(props);
+        this.state={
+            dataSpecialty:[]
+        }
+    }
+   async componentDidMount(){
+    let res = await getAllClinic();
+    if(res && res.errCode === 0){
+        this.setState({
+            dataSpecialty:res.data ?res.data:[]
+        })
+    }
+   }
+    handleViewDetailSpecialty=(item)=>{
+        this.props.history.push(`/detail-specialty/${item.id}`)
+    }
     render() {
+        let{dataSpecialty}= this.state;
         return (
             <Fragment>
-               <div className='section-share section-medical '>
+               <div className='section-share section-specialty'>
                 <div className='section-container'>
                     <div className='section-header'>
-                        <span className='title-section'>Cơ sở y tế nổi bật</span>
-                        <button className='btn-section'>xem thêm</button>
+                        <span className='title-section'><FormattedMessage id="home-page.clinic"/></span>
+                        <button className='btn-section'><FormattedMessage id="home-page.more-info"/></button>
                     </div>
                     <div className='section-slider'>
                     <Slider {...this.props.settings}>
-                        <div className='section-custom'>
-                            <div className='bg-img img-medical' ></div>
-                            <div>Bệnh viện thu cúc</div>
-                        </div>
-                        <div className='section-custom'>
-                            <div className='bg-img img-medical' ></div>
-                            <div>tiêu hóa</div>
-                        </div>
-                        <div className='section-custom'>
-                            <div className='bg-img img-medical' ></div>
-                            <div>3</div>
-                        </div>
-                        <div className='section-custom'>
-                            <div className='bg-img img-medical' ></div>
-                            <div>4</div>
-                        </div>
-                        <div className='section-custom'>
-                            <div className='bg-img img-medical' ></div>
-                            <div>5</div>
-                        </div>
-                        <div className='section-custom'>
-                            <div className='bg-img img-medical' ></div>
-                            <div>6</div>
-                        </div>
-                        <div className='section-custom'>
-                            <div className='bg-img img-medical' ></div>
-                            <div>7</div>
-                        </div>
-                        <div className='section-custom'>
-                            <div className='bg-img img-medical' ></div>
-                            <div>8</div>
-                        </div>
+                        {dataSpecialty && dataSpecialty.length >0 &&
+                         dataSpecialty.map((item,index)=>{
+                            return(
+                                <div className='section-custom' key={index} onClick={()=> this.handleViewDetailSpecialty(item)}>
+                                    <div className='border-custom'>
+
+                                    <div className='bg-img img-specialty'style={{ backgroundImage:`url(${item.image})` }} ></div>
+                                    <div>{item.name}</div>
+                                    </div>
+                                </div>
+                            )
+                         }
+                         )}
+                       
                     </Slider>
                     </div>
                     
@@ -61,13 +62,15 @@ class MedicalFacility extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        language: state.app.language,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        // changeLanguageAppRedux:(language) => dispatch(changeLanguageApp(language))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalFacility);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Clinic));

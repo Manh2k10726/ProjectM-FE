@@ -68,7 +68,8 @@
     "home-page":{
         "out-standing-doctor":"Bác sĩ nổi bật",
         "more-info":"Xem thêm",
-        "specialty":"Chuyên khoa"
+        "specialty":"Chuyên khoa",
+        "clinic":"Cơ sở y tế"
     },
     "manage-schedule":{
         "title":"Quản lý kế hoạch khám bệnh",

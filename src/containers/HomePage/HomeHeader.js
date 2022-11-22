@@ -17,6 +17,9 @@ class HomeHeader extends Component {
     handleToSpecialty=()=>{
         this.props.history.push(`/specialty`)
     }
+    handleToDoctor=()=>{
+        this.props.history.push(`/doctors`)
+    }
     render() {
         let language = this.props.language;
         return (
@@ -32,15 +35,15 @@ class HomeHeader extends Component {
                                 <div><b><FormattedMessage id="home-header.speciality"/></b></div>
                                 <div className='subs-title'><FormattedMessage id="home-header.search-doctor"/></div>
                             </div>
-                            <div className='children-center-content'>
+                            <div className='children-center-content'onClick={()=>this.handleToSpecialty()}>
                                 <div><b><FormattedMessage id="home-header.health-facility"/></b></div>
                                 <div className='subs-title'><FormattedMessage id="home-header.select-room"/></div>
                             </div>
-                            <div className='children-center-content'>
+                            <div className='children-center-content'onClick={()=>this.handleToDoctor()}>
                                 <div><b><FormattedMessage id="home-header.doctor"/></b></div>
                                 <div className='subs-title'><FormattedMessage id="home-header.select-doctor"/></div>
                             </div>
-                            <div className='children-center-content'>
+                            <div className='children-center-content'onClick={()=>this.handleToSpecialty()}>
                                 <div><b><FormattedMessage id="home-header.medical-package"/></b></div>
                                 <div className='subs-title'><FormattedMessage id="home-header.General-health-check"/></div>
                             </div>
