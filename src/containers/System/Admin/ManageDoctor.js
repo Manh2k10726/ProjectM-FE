@@ -158,7 +158,12 @@ class ManageDoctor extends Component {
                 nameClinic:'',
                 note:'',
                 clinicId:'',
-                specialtyId:''
+                specialtyId:'',
+                selectedPrice:'',
+                selectedPayment:'',
+                selectedProvince:'',
+                selectedSpecialty:'',
+                selectedClinic:'',
             })
         }
 
@@ -217,6 +222,14 @@ class ManageDoctor extends Component {
                     result.push(object)
                 })
             }
+            if (type === 'CLINIC') {
+                inputData.map((item,index)=>{
+                    let object={};
+                    object.label=item.name; 
+                    object.value=item.id;
+                    result.push(object)
+                })
+            }
         }
         return result;
     }
@@ -228,35 +241,40 @@ class ManageDoctor extends Component {
          })
         } 
         if(prevProps.language !== this.props.language){
-         let {resPrice,resPayment,resProvince,resSpecialty}=this.props.allRequiredDoctorInfo;
+         let {resPrice,resPayment,resProvince,resSpecialty,resClinic}=this.props.allRequiredDoctorInfo;
          let dataSelectPrice = this.buildDataInputSelect(resPrice,'PRICE')
          let dataSelectPayment = this.buildDataInputSelect(resPayment,'PAYMENT')
          let dataSelectProvince = this.buildDataInputSelect(resProvince,'PROVINCE')
          let dataSelect = this.buildDataInputSelect(this.props.allDoctor,'USERS')
          let dataSelectSpecialty = this.buildDataInputSelect(resSpecialty,'SPECIALTY')
+         let dataSelectClinic = this.buildDataInputSelect(resClinic,'CLINIC')
          this.setState({
                 listPrice: dataSelectPrice,
                 listPayment: dataSelectPayment,
                 listProvince: dataSelectProvince,
                 listDoctors: dataSelect,
-                listSpecialty:dataSelectSpecialty
+                listSpecialty:dataSelectSpecialty,
+                listClinic:dataSelectClinic
          })
         }
         if(prevProps.allRequiredDoctorInfo !== this.props.allRequiredDoctorInfo){
-         let {resPrice,resPayment,resProvince,resSpecialty}=this.props.allRequiredDoctorInfo;
-         let dataSelectPrice = this.buildDataInputSelect(resPrice,'PRICE')
-         let dataSelectSpecialty = this.buildDataInputSelect(resSpecialty,'SPECIALTY')
-         let dataSelectPayment = this.buildDataInputSelect(resPayment,'PAYMENT')
-         let dataSelectProvince = this.buildDataInputSelect(resProvince,'PROVINCE')
+            let {resPrice,resPayment,resProvince,resSpecialty,resClinic}=this.props.allRequiredDoctorInfo;
+            let dataSelectPrice = this.buildDataInputSelect(resPrice,'PRICE')
+            let dataSelectPayment = this.buildDataInputSelect(resPayment,'PAYMENT')
+            let dataSelectProvince = this.buildDataInputSelect(resProvince,'PROVINCE')
+            let dataSelect = this.buildDataInputSelect(this.props.allDoctor,'USERS')
+            let dataSelectSpecialty = this.buildDataInputSelect(resSpecialty,'SPECIALTY')
+            let dataSelectClinic = this.buildDataInputSelect(resClinic,'CLINIC')
  
-         console.log('check data new select' ,dataSelectPrice,dataSelectPayment,dataSelectProvince)
-         this.setState({
-             listPrice: dataSelectPrice,
+        //  console.log('check data new select' ,dataSelectPrice,dataSelectPayment,dataSelectProvince)
+        this.setState({
+            listPrice: dataSelectPrice,
             listPayment: dataSelectPayment,
             listProvince: dataSelectProvince,
-            listSpecialty:dataSelectSpecialty
-
-         })
+            listDoctors: dataSelect,
+            listSpecialty:dataSelectSpecialty,
+            listClinic:dataSelectClinic
+     })
         }
      }
      handelOnChangeSelectDoctorInfo =async (selectedDoctor,name)=>{

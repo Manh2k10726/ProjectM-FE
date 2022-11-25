@@ -20,14 +20,14 @@ class Clinic extends Component {
         })
     }
    }
-    handleViewDetailSpecialty=(item)=>{
-        this.props.history.push(`/detail-specialty/${item.id}`)
+    handleViewDetailClinic=(item)=>{
+        this.props.history.push(`/detail-clinic/${item.id}`)
     }
     render() {
         let{dataSpecialty}= this.state;
         return (
             <Fragment>
-               <div className='section-share section-specialty'>
+               <div className='section-share '>
                 <div className='section-container'>
                     <div className='section-header'>
                         <span className='title-section'><FormattedMessage id="home-page.clinic"/></span>
@@ -38,11 +38,11 @@ class Clinic extends Component {
                         {dataSpecialty && dataSpecialty.length >0 &&
                          dataSpecialty.map((item,index)=>{
                             return(
-                                <div className='section-custom' key={index} onClick={()=> this.handleViewDetailSpecialty(item)}>
+                                <div className='section-custom' key={index} onClick={()=> this.handleViewDetailClinic(item)}>
                                     <div className='border-custom'>
 
                                     <div className='bg-img img-specialty'style={{ backgroundImage:`url(${item.image})` }} ></div>
-                                    <div>{item.name}</div>
+                                    <div className='name'>{item.name}</div>
                                     </div>
                                 </div>
                             )

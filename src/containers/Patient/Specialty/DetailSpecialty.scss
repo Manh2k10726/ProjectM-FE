@@ -3,6 +3,10 @@
     .sp-detail-up{
         // background: url('../../../assets/images/bookingcare-cover-4.jpg');
         background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.9),rgb(218, 213, 213));
+        .sp-detail-name{
+            padding-left: 100px;
+            font-size: 25px;
+        }
     .description-specialty-hidden{
         // border:1px solid red;
         height: 150px;

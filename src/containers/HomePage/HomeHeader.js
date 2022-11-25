@@ -31,19 +31,19 @@ class HomeHeader extends Component {
                             <div className='header-logo' onClick={()=>this.handleReturnHome()}></div>
                         </div>
                         <div className='center-content'>
-                            <div className='children-center-content' onClick={()=>this.handleToSpecialty()} >
+                            <div className='children-center-content ss1' onClick={()=>this.handleToSpecialty()} >
                                 <div><b><FormattedMessage id="home-header.speciality"/></b></div>
                                 <div className='subs-title'><FormattedMessage id="home-header.search-doctor"/></div>
                             </div>
-                            <div className='children-center-content'onClick={()=>this.handleToSpecialty()}>
+                            <div className='children-center-content ss2'onClick={()=>this.handleToSpecialty()}>
                                 <div><b><FormattedMessage id="home-header.health-facility"/></b></div>
                                 <div className='subs-title'><FormattedMessage id="home-header.select-room"/></div>
                             </div>
-                            <div className='children-center-content'onClick={()=>this.handleToDoctor()}>
+                            <div className='children-center-content ss3'onClick={()=>this.handleToDoctor()}>
                                 <div><b><FormattedMessage id="home-header.doctor"/></b></div>
                                 <div className='subs-title'><FormattedMessage id="home-header.select-doctor"/></div>
                             </div>
-                            <div className='children-center-content'onClick={()=>this.handleToSpecialty()}>
+                            <div className='children-center-content ss4'onClick={()=>this.handleToSpecialty()}>
                                 <div><b><FormattedMessage id="home-header.medical-package"/></b></div>
                                 <div className='subs-title'><FormattedMessage id="home-header.General-health-check"/></div>
                             </div>

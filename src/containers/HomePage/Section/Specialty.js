@@ -42,7 +42,7 @@ class Specialty extends Component {
                                     <div className='border-custom'>
 
                                     <div className='bg-img img-specialty'style={{ backgroundImage:`url(${item.image})` }} ></div>
-                                    <div>{item.name}</div>
+                                    <div className='name'>{item.name}</div>
                                     </div>
                                 </div>
                             )

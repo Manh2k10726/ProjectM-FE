@@ -35,7 +35,7 @@ class SearchDoctor extends Component {
     render() {
         // console.log('check top doctor:',this.props.topDoctorsRedux)
         let arrDoctor = this.state.arrDoctor;
-        arrDoctor=arrDoctor.concat(arrDoctor).concat(arrDoctor)
+        // arrDoctor=arrDoctor.concat(arrDoctor).concat(arrDoctor)
         let {language}=this.props;
         return (
             <Fragment>
@@ -63,7 +63,7 @@ class SearchDoctor extends Component {
                                             
                                         </div>
                                     </div>
-                                            <div className='position text-center'>
+                                            <div className='position '>
                                                 <div>{language === LANGUAGES.VI ? nameVi:nameEn}</div>
                                                 
                                             </div>
