@@ -22,6 +22,10 @@ export const adminMenu = [
                
                         name: 'menu.system.doctor.manage-schedule',link : '/doctor/manage-schedule'
                     },
+            { //Quản lý benh nhan
+               
+                        name: 'menu.system.doctor.manage-patient',link : '/doctor/manage-patient'
+                   }, 
                     
                
             
@@ -59,7 +63,10 @@ export const doctorMenu = [
                
                  name: 'menu.system.doctor.manage-schedule',link : '/doctor/manage-schedule'
             },
-                    
+            { //Quản lý benh nhan
+               
+                name: 'menu.system.doctor.manage-patient',link : '/doctor/manage-patient'
+           },   
               
         ]
     }

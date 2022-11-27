@@ -5,9 +5,29 @@ import { FormattedMessage } from 'react-intl';
 import{LANGUAGES } from "../../utils";
 import { changeLanguageApp } from '../../store/actions/appActions';
 import { withRouter } from 'react-router';
+import SearchModal from '../../containers/HomePage/Search/SearchModal';
+import { getDataSearch } from '../../services/userService';
 
 class HomeHeader extends Component {
-
+    constructor(props){
+        super(props);
+        this.state = {
+            isOpenModalSearch:false,
+           arrSpecialty:{}
+        }
+    }
+    handleClickModal= async(data)=>{
+        this.setState({
+            isOpenModalSearch:true,
+            arrSpecialty:data
+        })
+        console.log('check time add to model',data)
+    }
+    handleCloseModal= ()=>{
+        this.setState({
+            isOpenModalSearch:false
+        })
+    } 
     changeLanguage =(language)=>{
         this.props.changeLanguageAppRedux(language)
     }
@@ -20,7 +40,16 @@ class HomeHeader extends Component {
     handleToDoctor=()=>{
         this.props.history.push(`/doctors`)
     }
+    // handleOnChangeSelect=async(event)=>{
+    //         let res = await getDataSearch();
+    //         if(res && res.errCode === 0){
+    //             this.setState({
+    //                 arrSpecialty: res.data ? res.data :[]
+    //             })
+    //         }
+    // } 
     render() {
+        let {isOpenModalSearch} =this.state;
         let language = this.props.language;
         return (
             <Fragment>
@@ -61,8 +90,13 @@ class HomeHeader extends Component {
                             <div className='title1'><FormattedMessage id="banner.title1"/></div>
                             <div className='title2'><FormattedMessage id="banner.title2"/></div>
                             <div className='search'>
-                                <i className='fas fa-search'></i>
+                                <i className='fas fa-search' onClick={()=>this.handleClickModal()}></i>
+
                                 <input type='text' placeholder='Tìm chuyên khoa khám bệnh'/>
+                                <SearchModal
+                                    isOpenModal={isOpenModalSearch}
+                                    handleCloseModal={this.handleCloseModal}
+                                />
                             </div>
                         </div>
                         <div className='content-down'>
