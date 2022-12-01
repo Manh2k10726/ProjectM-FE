@@ -147,7 +147,7 @@
             margin: 0 auto;
             border-radius: 25px;
             padding: 10px;
-            background-color: #f7d800;
+            background-color: #ffffff;
             i{
                 margin: 0 5px ;
             }
@@ -155,9 +155,21 @@
                 height: 30px;
                 background: transparent;
                 border: none;
-                width: 365px;
+                width: 460px;
                 outline: none;
+                
             }
+        }
+        .result{
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            margin: 10px auto;
+            min-height: 200px;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: #ffffff;
+           
         }
     }
    .content-down{

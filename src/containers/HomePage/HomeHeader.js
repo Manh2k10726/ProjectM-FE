@@ -5,29 +5,38 @@ import { FormattedMessage } from 'react-intl';
 import{LANGUAGES } from "../../utils";
 import { changeLanguageApp } from '../../store/actions/appActions';
 import { withRouter } from 'react-router';
-import SearchModal from '../../containers/HomePage/Search/SearchModal';
-import { getDataSearch } from '../../services/userService';
+import _ from 'lodash';
+import { searchDataHome } from '../../services/userService';
+
 
 class HomeHeader extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isOpenModalSearch:false,
-           arrSpecialty:{}
+            checkHidden:false,
+            arrSpecialty:[],
+            fullName:''
         }
     }
-    handleClickModal= async(data)=>{
+    handleOnchangeInput=(event,id)=>{
         this.setState({
-            isOpenModalSearch:true,
-            arrSpecialty:data
+            fullName: event.target.value
         })
-        console.log('check time add to model',data)
+        console.log('check state',this.state)
     }
-    handleCloseModal= ()=>{
-        this.setState({
-            isOpenModalSearch:false
-        })
-    } 
+    async componentDidMount(){
+      
+       await this.getAllSpecialtySearch();
+    }
+    getAllSpecialtySearch = async()=>{
+        let res = await searchDataHome(this.state.fullName);
+        if(res && res.errCode === 0){
+            this.setState({
+                arrSpecialty: res.data
+            })
+        }
+        console.log('check response:',res)
+    }
     changeLanguage =(language)=>{
         this.props.changeLanguageAppRedux(language)
     }
@@ -40,16 +49,39 @@ class HomeHeader extends Component {
     handleToDoctor=()=>{
         this.props.history.push(`/doctors`)
     }
-    // handleOnChangeSelect=async(event)=>{
-    //         let res = await getDataSearch();
-    //         if(res && res.errCode === 0){
-    //             this.setState({
-    //                 arrSpecialty: res.data ? res.data :[]
-    //             })
-    //         }
-    // } 
+    // handleOnchangeInput=(event,id)=>{
+    //     let valueInput= event.target.value;
+    //     let stateCopy ={...this.state};
+    //     stateCopy[id] = valueInput;
+    //     this.setState({
+    //         ...stateCopy
+    //     })
+    //     console.log('check state',this.state)
+    // }
+    handelSearch=async ()=>{
+    let res = await searchDataHome(this.state.fullName);
+        if(res && res.errCode === 0){
+            this.setState({
+                arrSpecialty: res.data,
+                checkHidden:true
+            })
+        }
+    }
+    
+    handelClickHidden=(  )=>{
+        this.setState({
+            checkHidden:true
+        })
+        
+    }
+    handelClickShow=()=>{
+        this.setState({
+            checkHidden:false
+        })
+    }
     render() {
-        let {isOpenModalSearch} =this.state;
+        let {arrSpecialty,checkHidden}=this.state;
+        console.log('check arrSpecialty',this.state.arrSpecialty)
         let language = this.props.language;
         return (
             <Fragment>
@@ -85,21 +117,36 @@ class HomeHeader extends Component {
                     </div>
                 </div>
                 {this.props.isShowBanner == true &&
-                    <div className='home-header-banner'>
+                    <div className='home-header-banner' >
                         <div className='content-up'>
                             <div className='title1'><FormattedMessage id="banner.title1"/></div>
                             <div className='title2'><FormattedMessage id="banner.title2"/></div>
+                            
+                            { checkHidden===true?
+                            <>
                             <div className='search'>
-                                <i className='fas fa-search' onClick={()=>this.handleClickModal()}></i>
-
-                                <input type='text' placeholder='Tìm chuyên khoa khám bệnh'/>
-                                <SearchModal
-                                    isOpenModal={isOpenModalSearch}
-                                    handleCloseModal={this.handleCloseModal}
-                                />
+                            <input  onChange={(event)=> this.handleOnchangeInput(event,'fullName')} 
+                                value={this.state.fullName} type='text' placeholder='Tìm chuyên khoa khám bệnh'/>
+                            <i className='fas fa-times'  onClick={()=>this.handelClickShow()} ></i>
+                            </div> 
+                            <div className='result'>
+                            {arrSpecialty && !_.isEmpty(arrSpecialty)
+                                &&<div >
+                                      {arrSpecialty.name }
+                                </div>
+                            } 
                             </div>
+                            </>
+                            :<>
+                            <div className='search'>
+                            <input  onChange={(event)=> this.handleOnchangeInput(event,'fullName')}  value={this.state.fullName} 
+                            type='text' placeholder='Tìm chuyên khoa khám bệnh'/>
+                            <i className='fas fa-search' onClick={()=>this.handelClickHidden()} ></i>
+                            </div>
+                            </>
+                            }
                         </div>
-                        <div className='content-down'>
+                        <div className='content-down'onClick={()=>this.handelClickShow()}>
                             <div className='options'>
                                 <div className='options-child'>
                                     <div className='icon-child'><i className="fas fa-hospital-alt"></i></div>

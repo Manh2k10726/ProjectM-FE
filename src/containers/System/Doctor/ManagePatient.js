@@ -4,17 +4,25 @@ import { connect } from 'react-redux';
 import './ManagePatient.scss';
 import * as actions from '../../../store/actions'
 import DatePicker from '../../../components/Input/DatePicker';
-
+import {getAllPatientForDoctor} from '../../../services/userService'
+import moment from 'moment';
 
 class ManagePatient extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-           currentDate:new Date()
+           currentDate:moment(new Date()).startOf('day').valueOf(),
         }
     }
-    componentDidMount(){
+    async componentDidMount(){
+        let{user}=this.props;
+        let{currentDate}=this.state;
+        let formateDate = '';
+        let res = await getAllPatientForDoctor({
+            doctorId:user.id,
+            date:formateDate
+        })
     }
     componentDidUpdate(prevProps,prevState,snapshot){
         
@@ -27,6 +35,7 @@ class ManagePatient extends Component {
     }
     
     render() {
+        console.log('check prop:',this.props)
         return (
            <>
             <div className='manage-pt-container'>
@@ -44,7 +53,7 @@ class ManagePatient extends Component {
                     </div>
                     <div className='col-12 table-manage-patient'>
                     <table style={{width:'100%'}}>
-  
+                        <tbody>
                         <tr>
                             <td>Peter</td>
                             <td>Griffin</td>
@@ -55,6 +64,7 @@ class ManagePatient extends Component {
                             <td>Griffin</td>
                             <td>$150</td>
                         </tr>
+                        </tbody>
                     </table>
                     </div>
                 </div>
@@ -67,6 +77,8 @@ class ManagePatient extends Component {
 
 const mapStateToProps = state => {
     return {
+        language: state.app.language,
+        user:state.user.userInfo,
     };
 };
 

@@ -67,8 +67,11 @@ const  getAllClinic =() =>{
 const  getDetailClinic = (data) =>{
     return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`)
 }
-const  getDataSearch = (data) =>{
-    return axios.get(`/api/search-data-home`)
+const  searchDataHome = (inputName) =>{
+    return axios.get(`/api/search-data-home?name=${inputName}`)
+}
+const  getAllPatientForDoctor = (data) =>{
+    return axios.get(`/api/get-list-patient?doctorId=${data.doctorId}&date=${data.date}`)
 }
 export{handleLoginApi,getAllUsers,
     createNewUserService,delUserService,editUserService,
@@ -76,6 +79,8 @@ export{handleLoginApi,getAllUsers,
     getDetailInforDoctor,saveBulkScheduleDoctor,ScheduleDoctorByDate,
     getExtraInfoDoctorById,getProfileDoctorById,postPatientBookAppointment,
     postVerifyBookAppointment,
-    createNewSpecialty,getAllSpecialty,getDataSearch,
-    getDetailSpecialty,createNewClinic,getAllClinic,getDetailClinic
+    createNewSpecialty,getAllSpecialty,
+    searchDataHome,
+    getDetailSpecialty,createNewClinic,getAllClinic,getDetailClinic,
+    getAllPatientForDoctor
 }

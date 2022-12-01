@@ -285,7 +285,7 @@ class ManageDoctor extends Component {
         this.setState({
             ...stateCopy
         })
-        console.log('check name select on change',selectedDoctor , name)
+        // console.log('check name select on change',selectedDoctor , name)
      }
     render() {
         let {hasOldData,} = this.state;
