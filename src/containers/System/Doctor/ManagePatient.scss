@@ -20,4 +20,24 @@
               }
         }
     }
+    button{
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+        .mp-btn-confirm{
+            background-color: rgb(36, 185, 185);
+            margin-right: 10px;
+            height: 30px;
+            &:hover{
+                background-color: darken($color: rgb(36, 185, 185), $amount: 5);
+            }
+        }
+        .mp-btn-sendTo{
+            height: 30px;
+            background-color:orange;
+            &:hover{
+                background-color: darken($color: orange, $amount: 5);
+            }
+        }
+    }
 }

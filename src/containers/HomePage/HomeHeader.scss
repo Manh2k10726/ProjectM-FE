@@ -162,13 +162,22 @@
         }
         .result{
             width: 500px;
-            display: flex;
-            justify-content: center;
+            display: flex !important;
+            flex-direction: column;
             margin: 10px auto;
             min-height: 200px;
             border-radius: 15px;
             padding: 10px;
             background-color: #ffffff;
+            .section-name-custom{
+                
+                .name-custom{
+                    width: 100%;
+                    &:hover{
+                        color: #49bce2;
+                    }
+                }
+            }
            
         }
     }

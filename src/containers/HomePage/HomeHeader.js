@@ -25,17 +25,17 @@ class HomeHeader extends Component {
         console.log('check state',this.state)
     }
     async componentDidMount(){
-      
-       await this.getAllSpecialtySearch();
+        let name = this.state.fullName
+       await this.getAllSpecialtySearch(name);
     }
-    getAllSpecialtySearch = async()=>{
-        let res = await searchDataHome(this.state.fullName);
+    getAllSpecialtySearch = async(name)=>{
+        let res = await searchDataHome(name);
         if(res && res.errCode === 0){
             this.setState({
                 arrSpecialty: res.data
             })
         }
-        console.log('check response:',res)
+        console.log('check response:',name)
     }
     changeLanguage =(language)=>{
         this.props.changeLanguageAppRedux(language)
@@ -58,17 +58,18 @@ class HomeHeader extends Component {
     //     })
     //     console.log('check state',this.state)
     // }
-    handelSearch=async ()=>{
-    let res = await searchDataHome(this.state.fullName);
-        if(res && res.errCode === 0){
-            this.setState({
-                arrSpecialty: res.data,
-                checkHidden:true
-            })
+    handelSearch = ()=>{
+        this.setState({
+            checkHidden:true
+        },()=>{
+            let name = this.state.fullName
+            this.getAllSpecialtySearch(name);
+            console.log('name',name)
         }
+        )
     }
     
-    handelClickHidden=(  )=>{
+    handelClickHidden=()=>{
         this.setState({
             checkHidden:true
         })
@@ -78,6 +79,9 @@ class HomeHeader extends Component {
         this.setState({
             checkHidden:false
         })
+    }
+    handleViewDetailSpecialty=(item)=>{
+        this.props.history.push(`/detail-specialty/${item.id}`)
     }
     render() {
         let {arrSpecialty,checkHidden}=this.state;
@@ -130,18 +134,26 @@ class HomeHeader extends Component {
                             <i className='fas fa-times'  onClick={()=>this.handelClickShow()} ></i>
                             </div> 
                             <div className='result'>
-                            {arrSpecialty && !_.isEmpty(arrSpecialty)
-                                &&<div >
-                                      {arrSpecialty.name }
-                                </div>
-                            } 
+                            {arrSpecialty && arrSpecialty.length >0 &&
+                                arrSpecialty.map((item,index)=>{
+                                return(
+                                    <div className='section-name-custom' key={index}
+                                     onClick={()=> this.handleViewDetailSpecialty(item)}
+                                     >
+                                        <div className='name-custom'>
+                                            <div>{item.name}</div>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            )}
                             </div>
                             </>
                             :<>
                             <div className='search'>
                             <input  onChange={(event)=> this.handleOnchangeInput(event,'fullName')}  value={this.state.fullName} 
                             type='text' placeholder='Tìm chuyên khoa khám bệnh'/>
-                            <i className='fas fa-search' onClick={()=>this.handelClickHidden()} ></i>
+                            <i className='fas fa-search' onClick={()=>this.handelSearch()} ></i>
                             </div>
                             </>
                             }

@@ -13,16 +13,26 @@ class ManagePatient extends Component {
         super(props);
         this.state = {
            currentDate:moment(new Date()).startOf('day').valueOf(),
+           dataPatient:[]
         }
     }
     async componentDidMount(){
         let{user}=this.props;
         let{currentDate}=this.state;
-        let formateDate = '';
+        let formateDate = new Date(currentDate).getTime();
+       this.getDataPatient(user,formateDate)
+    }
+    getDataPatient = async(user,formateDate)=>{
         let res = await getAllPatientForDoctor({
             doctorId:user.id,
             date:formateDate
         })
+        if(res && res.errCode === 0){
+            this.setState({
+                dataPatient:res.data
+            })
+        }
+        console.log("check ré :",res)
     }
     componentDidUpdate(prevProps,prevState,snapshot){
         
@@ -30,12 +40,19 @@ class ManagePatient extends Component {
     handleOnChangeDatePicker=(date)=>{
         this.setState({
             currentDate : date[0]
-        })
-        console.log('check value onchange datePicker :',date)
+        },()=>{
+            let{user}=this.props;
+            let{currentDate}=this.state;
+            let formateDate = new Date(currentDate).getTime();
+            this.getDataPatient(user,formateDate)
+        }
+        )
     }
     
     render() {
+        let{dataPatient} = this.state;
         console.log('check prop:',this.props)
+        console.log('check prop:',this.state)
         return (
            <>
             <div className='manage-pt-container'>
@@ -55,15 +72,33 @@ class ManagePatient extends Component {
                     <table style={{width:'100%'}}>
                         <tbody>
                         <tr>
-                            <td>Peter</td>
-                            <td>Griffin</td>
-                            <td>$100</td>
+                            <td>STT</td>
+                            <td>Time</td>
+                            <td>Name</td>
+                            <td>address</td>
+                            <td>Gender</td>
+                            <td>Status</td>
                         </tr>
-                        <tr>
-                            <td>Lois</td>
-                            <td>Griffin</td>
-                            <td>$150</td>
-                        </tr>
+                        {dataPatient && dataPatient.length > 0 ?
+                            dataPatient.map((item,index)=>{
+                                return(
+                                    <tr key={index}>
+                                        <td>{index+1}</td>
+                                        <td>{item.timeTypeDataPt.valueVi}</td>
+                                        <td>{item.patientData.firstName}</td>
+                                        <td>{item.patientData.address}</td>
+                                        <td>{item.patientData.genderData.valueVi}</td>
+                                        <td>
+                                            <button className='mp-btn-confirm'>Xác nhận</button>
+                                            <button className='mp-btn-sendTo'>Gửi hóa đơn</button>
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                            :
+                            <tr>No data !!!</tr>
+                        }
+                        
                         </tbody>
                     </table>
                     </div>
