@@ -75,14 +75,14 @@ class Login extends Component {
 
     }
 
-    handlerKeyDown = (event) => {
-        const keyCode = event.which || event.keyCode;
-        if (keyCode === KeyCodeUtils.ENTER) {
-            event.preventDefault();
-            if (!this.btnLogin.current || this.btnLogin.current.disabled) return;
-            this.btnLogin.current.click();
-        }
-    };
+    // handlerKeyDown = (event) => {
+    //     const keyCode = event.which || event.keyCode;
+    //     if (keyCode === KeyCodeUtils.ENTER) {
+    //         event.preventDefault();
+    //         if (!this.btnLogin.current || this.btnLogin.current.disabled) return;
+    //         this.btnLogin.current.click();
+    //     }
+    // };
 
     componentDidMount() {
         document.addEventListener('keydown', this.handlerKeyDown);

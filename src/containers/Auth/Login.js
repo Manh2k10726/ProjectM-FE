@@ -4,6 +4,7 @@ import { push } from "connected-react-router";
 // import '../../styles/styles.scss';
 import { handleLoginApi } from '../../services/userService';
 import * as actions from "../../store/actions";
+import { withRouter } from 'react-router';
 import './Login.scss';
 // import { FormattedMessage } from 'react-intl';
 
@@ -67,6 +68,9 @@ class Login extends Component {
            this.handleLogin() 
         }
     }
+    handleGoToRegister=() => {
+        this.props.history.push(`/register`)
+    }
     render() {
         //JSX
         return (
@@ -101,6 +105,7 @@ class Login extends Component {
                         </div>
                         <div className='col-12 '>
                             <button className='login-btn' onClick={() =>{this.handleLogin()}}>Login</button>
+                            <button className='register-btn' onClick={() =>{this.handleGoToRegister()}}>Register</button>
                         </div>
                         <div className='col-12'>
                             <span className='login-forgot'>forgot your password?</span>
@@ -109,9 +114,8 @@ class Login extends Component {
                             <span className='text'>Or login with:</span>
                         </div>
                         <div className='col-12 social-login'>
-                            {/* <i className='fa fa-google-plus-g gg'> G</i> */}
-                            <i className="fab fa-google gg"></i>
-                            <i className="fab fa-facebook-square fb"></i>
+                        <i className="fab fa-google gg"> <span className='text-icon'> đăng nhập với tài khoản google</span> </i>
+                            <i className="fab fa-facebook-square fb1"> <span className='text-icon'> đăng nhập với facebook</span></i>
                         </div>
                     </div>
                 </div>
@@ -134,4 +138,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

@@ -3,6 +3,7 @@ export const path = {
     HOMEPAGE:'/home',
     LOGIN: '/login',
     LOG_OUT: '/logout',
+    REGISTER:'/register',
     SYSTEM: '/system',
     SEARCH_DOCTOR:'/doctors',
     SEARCH_SPECIALTY: '/specialty',

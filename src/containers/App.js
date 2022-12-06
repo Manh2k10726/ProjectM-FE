@@ -26,6 +26,7 @@ import DetailSpecialty from './Patient/Specialty/DetailSpecialty';
 import SearchSpecialty from './Patient/Specialty/SearchSpecialty'
 import searchDoctor from './Patient/Doctors/searchDoctor';
 import detailClinic from './Patient/Clinic/detailClinic';
+import register from './Auth/register';
 class App extends Component {
 
     handlePersistorState = () => {
@@ -59,6 +60,8 @@ class App extends Component {
                                 <Switch>
                                     <Route path={path.HOME} exact component={(Home)} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
+                                    <Route path={path.REGISTER} component={userIsNotAuthenticated(register)} />
+                                    
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                     <Route path={'/doctor/'} component={userIsAuthenticated(Doctor)} />
                                     <Route path={path.HOMEPAGE} component={(HomePage)} />

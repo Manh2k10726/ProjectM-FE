@@ -36,6 +36,8 @@ class HomePage extends Component {
             slidesToShow: 2,
             slidesToScroll: 1
           };
+          const { isLoggedIn,userInfo } = this.props;
+        console.log('userInfo:',userInfo)
         return (
             <div>
                 <HomeHeader isShowBanner={true}/>
@@ -53,7 +55,8 @@ class HomePage extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        userInfo: state.user.userInfo
     };
 };
 

@@ -20,9 +20,16 @@ class HomeHeader extends Component {
     }
     handleOnchangeInput=(event,id)=>{
         this.setState({
-            fullName: event.target.value
-        })
-        console.log('check state',this.state)
+            fullName: event.target.value,
+            checkHidden:true,
+        }
+        ,()=>{
+            let name = this.state.fullName
+            this.getAllSpecialtySearch(name);
+            console.log('name',name)
+        }
+        )
+    
     }
     async componentDidMount(){
         let name = this.state.fullName
@@ -49,15 +56,7 @@ class HomeHeader extends Component {
     handleToDoctor=()=>{
         this.props.history.push(`/doctors`)
     }
-    // handleOnchangeInput=(event,id)=>{
-    //     let valueInput= event.target.value;
-    //     let stateCopy ={...this.state};
-    //     stateCopy[id] = valueInput;
-    //     this.setState({
-    //         ...stateCopy
-    //     })
-    //     console.log('check state',this.state)
-    // }
+    
     handelSearch = ()=>{
         this.setState({
             checkHidden:true

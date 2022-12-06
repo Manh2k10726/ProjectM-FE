@@ -8,7 +8,13 @@ export const userIsAuthenticated = connectedRouterRedirect({
     wrapperDisplayName: 'UserIsAuthenticated',
     redirectPath: '/login'
 });
-
+// export const userIsAdmin = connectedRouterRedirect({
+//     redirectPath: '/home',
+//     allowRedirectBack: false,
+//     authenticatedSelector: state => state.user.userInfo.roleId === "R3" ,
+//     // redirectAction: routerActions.replace,
+//     wrapperDisplayName: 'UserIsAdmin'
+//   })
 export const userIsNotAuthenticated = connectedRouterRedirect({
     // Want to redirect the user when they are authenticated
     authenticatedSelector: state => !state.user.isLoggedIn,
