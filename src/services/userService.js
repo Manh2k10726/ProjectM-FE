@@ -73,6 +73,9 @@ const  searchDataHome = (inputName) =>{
 const  getAllPatientForDoctor = (data) =>{
     return axios.get(`/api/get-list-patient?doctorId=${data.doctorId}&date=${data.date}`)
 }
+const  postSendRemedy =(data) =>{
+    return axios.post(`/api/send-remedy`,data)
+}
 export{handleLoginApi,getAllUsers,
     createNewUserService,delUserService,editUserService,
     getAllCodeService,getTopDoctorHomeService,getAllDoctors,saveDetailDoctor,
@@ -80,7 +83,7 @@ export{handleLoginApi,getAllUsers,
     getExtraInfoDoctorById,getProfileDoctorById,postPatientBookAppointment,
     postVerifyBookAppointment,
     createNewSpecialty,getAllSpecialty,
-    searchDataHome,
-    getDetailSpecialty,createNewClinic,getAllClinic,getDetailClinic,
-    getAllPatientForDoctor
+    searchDataHome,getDetailSpecialty,
+    createNewClinic,getAllClinic,getDetailClinic,
+    getAllPatientForDoctor,postSendRemedy
 }

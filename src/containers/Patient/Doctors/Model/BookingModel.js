@@ -13,6 +13,7 @@ import * as actions from '../../../../store/actions'
 import { LANGUAGES } from '../../../../utils';
 import Select from 'react-select';
 import {postPatientBookAppointment} from '../../../../services/userService';
+import LoadingOverlay from 'react-loading-overlay';
 import { toast } from 'react-toastify';
 
 class BookingModel extends Component {
@@ -28,7 +29,9 @@ class BookingModel extends Component {
             selectedGender:'',
             genders:'',
             doctorId:'',
-            timeType:''
+            timeType:'',
+            isShowLoading:false,
+
         }
     }
     async componentDidMount(){
@@ -122,6 +125,9 @@ handleConfirmBooking = async () => {
     let date =  new Date(this.state.birthday).getTime();
     let timeString = this.buildTimeBooking(this.props.dataTime)
     let doctorName = this.buildNameBooking(this.props.dataTime)
+    this.setState({
+        isShowLoading:true
+    })
     let res = await postPatientBookAppointment({
             fullName:this.state.fullName,
             phoneNumber:this.state.phoneNumber,
@@ -138,15 +144,22 @@ handleConfirmBooking = async () => {
             doctorName:doctorName
     })
     if(res && res.errCode === 0){
+        this.setState({
+            isShowLoading:false
+        })
         toast.success('Booking a new appointment succeed !!!Check your email to complete the procedure ! ');
         this.props.handleCloseModal()
     }else{
+        this.setState({
+            isShowLoading:false
+        })
         toast.error('Booking a new appointment error !!! ')
     }
     console.log('check data input :  ',this.state)
 }
     render() {
         let doctorId ='';
+        let{isShowLoading}=this.state;
         let {isOpenModal,handleCloseModal,dataTime}=this.props;
         if (dataTime && !_.isEmpty(dataTime)) {
             doctorId = dataTime.doctorId
@@ -230,6 +243,12 @@ handleConfirmBooking = async () => {
                         </div>
                     </div>
                 </Modal>
+                <LoadingOverlay
+                    active={isShowLoading}
+                    spinner
+                    text='Loading ...'
+                    >
+                </LoadingOverlay>
             </Fragment>
         );
     }
