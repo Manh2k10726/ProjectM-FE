@@ -35,7 +35,7 @@
             "admin": {
                 "manage-user": "User",
                 "manage-doctor": "Manage doctor",
-                "manage-admin": "Manage admin",
+                "manage-admin": "Manage account",
                 "crud": "crud",
                 "crud-redux" :"crud-redux",
                 "clinic":"Clinic",
