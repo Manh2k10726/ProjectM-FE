@@ -136,7 +136,7 @@ class DetailDoctor extends Component {
                 )}
             </div>
             <div style={{ width: "50%" }}>
-              {/* <GoogleMap /> */}
+              {/* <MapBox /> */}
               {renderMap(detailDoctor)}
             </div>
           </div>
