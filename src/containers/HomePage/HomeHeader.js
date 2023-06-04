@@ -54,7 +54,9 @@ class HomeHeader extends Component {
   handleToDoctor = () => {
     this.props.history.push(`/doctors`);
   };
-
+  handleToClinic = () => {
+    this.props.history.push(`/clinic`);
+  };
   handelSearch = () => {
     this.setState(
       {
@@ -80,6 +82,9 @@ class HomeHeader extends Component {
   handleViewDetailSpecialty = (item) => {
     this.props.history.push(`/detail-specialty/${item.id}`);
   };
+  gotoSystem = () => {
+    this.props.history.push(`/login`);
+  };
   render() {
     const { processLogout, userInfo } = this.props;
     let { arrSpecialty, checkHidden } = this.state;
@@ -89,9 +94,9 @@ class HomeHeader extends Component {
         <div className="home-header-container">
           <div className="home-header-content">
             <div className="left-content">
-              <div className="header-nar">
+              {/* <div className="header-nar">
                 <i className="fas fa-bars "></i>
-              </div>
+              </div> */}
               <div
                 className="header-logo"
                 onClick={() => this.handleReturnHome()}
@@ -113,7 +118,7 @@ class HomeHeader extends Component {
               </div>
               <div
                 className="children-center-content ss2"
-                onClick={() => this.handleToSpecialty()}
+                onClick={() => this.handleToClinic()}
               >
                 <div>
                   <b>
@@ -180,7 +185,7 @@ class HomeHeader extends Component {
               </div>
               <div
                 className="btn btn-logout"
-                onClick={processLogout}
+                onClick={() => this.gotoSystem()}
                 title="Log out"
               >
                 <i className="fas fa-sign-out-alt"></i>

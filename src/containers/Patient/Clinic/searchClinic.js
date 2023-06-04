@@ -3,8 +3,10 @@ import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import Slider from "react-slick";
-import { getAllSpecialty } from "../../../services/userService";
-class Specialty extends Component {
+import { getAllClinic } from "../../../services/userService";
+import HomeFooter from "../../HomePage/HomeFooter";
+import HomeHeader from "../../HomePage/HomeHeader";
+class SearchClinic extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,38 +14,30 @@ class Specialty extends Component {
     };
   }
   async componentDidMount() {
-    let res = await getAllSpecialty();
+    let res = await getAllClinic();
     if (res && res.errCode === 0) {
       this.setState({
         dataSpecialty: res.data ? res.data : [],
       });
     }
   }
-  handleToSpecialty = () => {
-    this.props.history.push(`/specialty`);
-  };
-  handleViewDetailSpecialty = (item) => {
-    this.props.history.push(`/detail-specialty/${item.id}`);
+  handleViewDetailClinic = (item) => {
+    this.props.history.push(`/detail-clinic/${item.id}`);
   };
   render() {
     let { dataSpecialty } = this.state;
     return (
       <Fragment>
-        <div className="section-share section-specialty">
+        <HomeHeader />
+        <div className="section-share ">
           <div className="section-container">
             <div className="section-header">
               <span className="title-section">
-                <FormattedMessage id="home-page.specialty" />
+                <FormattedMessage id="home-page.clinic" />
               </span>
-              <button
-                onClick={() => this.handleToSpecialty()}
-                className="btn-section"
-              >
-                <FormattedMessage id="home-page.more-info" />
-              </button>
             </div>
             <div className="section-slider">
-              <Slider {...this.props.settings}>
+              <div>
                 {dataSpecialty &&
                   dataSpecialty.length > 0 &&
                   dataSpecialty.map((item, index) => {
@@ -51,7 +45,7 @@ class Specialty extends Component {
                       <div
                         className="section-custom"
                         key={index}
-                        onClick={() => this.handleViewDetailSpecialty(item)}
+                        onClick={() => this.handleViewDetailClinic(item)}
                       >
                         <div className="border-custom">
                           <div
@@ -63,9 +57,10 @@ class Specialty extends Component {
                       </div>
                     );
                   })}
-              </Slider>
+              </div>
             </div>
           </div>
+          <HomeFooter />
         </div>
       </Fragment>
     );
@@ -86,5 +81,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(Specialty)
+  connect(mapStateToProps, mapDispatchToProps)(SearchClinic)
 );

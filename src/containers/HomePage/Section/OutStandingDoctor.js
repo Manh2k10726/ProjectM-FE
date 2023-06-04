@@ -27,6 +27,9 @@ class OutStandingDoctor extends Component {
   handleViewDetailDoctor = (doctor) => {
     this.props.history.push(`/detail-doctor/${doctor.id}`);
   };
+  handleToDoctor = () => {
+    this.props.history.push(`/doctors`);
+  };
   render() {
     let arrDoctor = this.state.arrDoctor;
     // arrDoctor=arrDoctor.concat(arrDoctor).concat(arrDoctor) gap 3 lan so luong phan tu
@@ -39,7 +42,10 @@ class OutStandingDoctor extends Component {
               <span className="title-section">
                 <FormattedMessage id="home-page.out-standing-doctor" />
               </span>
-              <button className="btn-section">
+              <button
+                onClick={() => this.handleToDoctor()}
+                className="btn-section"
+              >
                 <FormattedMessage id="home-page.more-info" />
               </button>
             </div>
